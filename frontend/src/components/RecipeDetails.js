@@ -1,4 +1,4 @@
-import { useRecipesContext } from '../hooks/useWorkoutsContext';
+import { useRecipesContext } from '../hooks/useRecipesContext';
 import { useAuthContext } from '../hooks/useAuthContext';
 
 function RecipeDetails({recipe}) {
