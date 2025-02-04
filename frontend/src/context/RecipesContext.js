@@ -1,8 +1,8 @@
 import { createContext, useReducer } from "react";
 
-export const RECIPESContext = createContext();
+export const RecipesContext = createContext();
 
-export const RECIPESReducer = (state, action) => {
+export const recipesReducer = (state, action) => {
     switch(action.type) {
         case 'SET_RECIPES':
             return {
@@ -21,14 +21,14 @@ export const RECIPESReducer = (state, action) => {
     }
 }
 
-export function RECIPESContextProvider({children}) {
-    const [state, dispatch] = useReducer(RECIPESReducer, {
+export function RecipesContextProvider({children}) {
+    const [state, dispatch] = useReducer(recipesReducer, {
         recipes: null
     });
 
     return(
-        <RECIPESContext.Provider value={{...state, dispatch}}>
+        <RecipesContext.Provider value={{...state, dispatch}}>
             {children}
-        </RECIPESContext.Provider>
+        </RecipesContext.Provider>
     )
 }
