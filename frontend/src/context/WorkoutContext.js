@@ -1,36 +1,34 @@
-import { createContext, useReducer, useEffect } from "react";
+import { createContext, useReducer } from "react";
 
-export const AuthContext = createContext();
+export const WorkoutsContext = createContext();
 
-export const authReducer = (state, action) => {
-    switch (action.type) {
-        case 'LOGIN':
-            return {user: action.payload};
-        case 'LOGOUT':
-            return {user: null};
+export const workoutsReducer = (state, action) => {
+    switch(action.type) {
+        case 'SET_WORKOUTS':
+            return {
+                workouts: action.payload
+            }
+        case 'CREATE_WORKOUTS':
+            return {
+                workouts: [action.payload, ...state.workouts]
+            }
+        case 'DELETE_WORKOUTS':
+            return {
+                workouts: state.workouts.filter((workout) => workout._id !== action.payload._id)
+            }
         default:
-            return state;
+            return state
     }
-};
+}
 
-export const AuthContextProvider = ({children}) => {
-    const [state, dispatch] = useReducer(authReducer, {
-        user: null
+export function WorkoutsContextProvider({children}) {
+    const [state, dispatch] = useReducer(workoutsReducer, {
+        workouts: null
     });
 
-    useEffect(() => {
-        const user = JSON.parse(localStorage.getItem('user'));
-
-        if (user) {
-            dispatch({type: 'LOGIN', payload: user});
-        }
-    }, []);
-
-    console.log('AuthContext State:', state);
-
     return(
-        <AuthContext.Provider value={{...state, dispatch}}>
+        <WorkoutsContext.Provider value={{...state, dispatch}}>
             {children}
-        </AuthContext.Provider>
+        </WorkoutsContext.Provider>
     )
 }
