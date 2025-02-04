@@ -91,9 +91,9 @@ const RecipeForm = () => {
                 value={difficulty}
                 className={emptyFields.includes('difficulty') ? 'error' : ''}>
                 <option value="">Select Difficulty</option>
-                <option value="Easy">Easy</option>
-                <option value="Medium">Medium</option>
-                <option value="Hard">Hard</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
             </select>
             <button>Add Recipe</button>
             {error && <div className="error">{error}</div>}
