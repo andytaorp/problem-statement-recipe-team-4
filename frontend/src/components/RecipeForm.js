@@ -86,12 +86,15 @@ function RecipeForm() {
                 className={emptyFields.includes('prepTime') ? 'error' : ''}
             />
             <label>Difficulty:</label> 
-            <input
-                type="text"
+            <select
                 onChange={(e) => setDifficulty(e.target.value)}
                 value={difficulty}
-                className={emptyFields.includes('difficulty') ? 'error' : ''}
-            />
+                className={emptyFields.includes('difficulty') ? 'error' : ''}>
+                <option value="">Select Difficulty</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+            </select>
             <button>Add Recipe</button>
             {error && <div className="error">{error}</div>}
         </form>
