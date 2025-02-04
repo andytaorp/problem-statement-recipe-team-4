@@ -1,36 +1,18 @@
-import { useState } from "react";
-import {useAuthContext} from "./useAuthContext";
+import { useAuthContext } from "./useAuthContext";
+import {useWorkoutsContext} from "./useWorkoutsContext";
 
-export const useLogin = () => {
-    const [error, setError] = useState(null);
-    const [isLoading, setIsLoading] = useState(null);
+export const useLogout = () => {
     const {dispatch} = useAuthContext();
+    const {dispatch: workoutsDispatch} = useWorkoutsContext();
 
-    const login = async (email, password) => {
-        setIsLoading(true);
-        setError(null);
+    const logout = () => {
+        //remove user from storage
+        localStorage.removeItem('user');
 
-        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/user/login`, {
-            method: "POST",
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({email, password})
-        })
-        console.log(response)
-        const json = await response.json();
-
-        if (!response.ok) {
-            setIsLoading(false);
-            setError(json.error);
-        }
-        if (response.ok) {
-            //save the user to local storage
-            localStorage.setItem('user', JSON.stringify(json));
-
-            //update the auth context
-            dispatch({type: "LOGIN", payload: json})
-
-            setIsLoading(false);
-        }
+        //dispatch logout action
+        dispatch({type: "LOGOUT"});
+        workoutsDispatch({type: 'SET_WORKOUTS', payload: null});
     }
-    return {login, isLoading, error}
-} 
+
+    return {logout};
+}
