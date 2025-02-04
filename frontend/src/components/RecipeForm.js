@@ -64,26 +64,28 @@ function RecipeForm() {
                 value={name}
                 className={emptyFields.includes('name') ? 'error' : ''}
             />
-            <label>Load (in kg):</label> 
+            <label>Ingredients (comma-separated):</label> 
             <input
                 type="text"
                 onChange={(e) => setIngredients(e.target.value)}
                 value={ingredients}
                 className={emptyFields.includes('ingredients') ? 'error' : ''}
             />
-            <label>Reps:</label> 
+            <label>Instructions:</label> 
             <input
                 type="text"
                 onChange={(e) => setInstructions(e.target.value)}
                 value={instructions}
                 className={emptyFields.includes('instructions') ? 'error' : ''}
             />
+            <label>Prep Time (mins):</label> 
             <input
                 type="number"
                 onChange={(e) => setPrepTime(e.target.value)}
                 value={prepTime}
                 className={emptyFields.includes('prepTime') ? 'error' : ''}
             />
+            <label>Difficulty:</label> 
             <input
                 type="text"
                 onChange={(e) => setDifficulty(e.target.value)}
