@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useRecipesContext } from "../hooks/useRecipesContext";
-import {useAuthContext} from "../hooks/useAuthContext";
-
+import { useAuthContext } from "../hooks/useAuthContext";
 import RecipeDetails from "../components/RecipeDetails";
 import RecipeForm from "../components/RecipeForm";
 
@@ -20,7 +19,7 @@ function Home() {
             const json = await response.json();
 
             if (response.ok) {
-                dispatch({type: 'SET_RECIPE', payload: json})
+                dispatch({type: 'SET_RECIPES', payload: json})
             }
         }
 
