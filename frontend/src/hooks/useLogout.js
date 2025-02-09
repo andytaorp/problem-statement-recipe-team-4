@@ -1,18 +1,18 @@
 import { useAuthContext } from "./useAuthContext";
-import {useRecipesContext} from "./useRecipesContext";
+import { useRecipesContext } from "./useRecipesContext";
+import { useNavigate } from "react-router-dom";
 
 export const useLogout = () => {
-    const {dispatch} = useAuthContext();
-    const {dispatch: recipesDispatch} = useRecipesContext();
+    const { dispatch } = useAuthContext();
+    const { dispatch: recipesDispatch } = useRecipesContext();
+    const navigate = useNavigate(); // Add navigation
 
     const logout = () => {
-        //remove user from storage
         localStorage.removeItem('user');
-
-        //dispatch logout action
         dispatch({type: "LOGOUT"});
         recipesDispatch({type: 'SET_RECIPES', payload: null});
-    }
+        navigate("/login"); // Redirect to login page
+    };
 
-    return {logout};
-}
+    return { logout };
+};
