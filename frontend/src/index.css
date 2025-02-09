@@ -1,0 +1,209 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Layout */
+:root {
+  --primary: #007bff;
+  --secondary: #f8f9fa;
+  --text-color: #333;
+  --error: #dc3545;
+}
+
+body {
+  background: var(--secondary);
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  color: var(--text-color);
+}
+
+/* Header */
+header {
+  background: #fff;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 15px 0;
+}
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+header a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+/* Pages Layout */
+.pages {
+  max-width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
+}
+
+/* Homepage */
+.home {
+  display: flex;
+  gap: 40px;
+}
+
+/* Card-style content */
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.card h4 {
+  margin: 0 0 10px 0;
+  font-size: 1.3em;
+  color: var(--primary);
+}
+.card p {
+  margin: 0;
+  font-size: 1em;
+  color: #555;
+}
+.card span {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  cursor: pointer;
+  background: var(--secondary);
+  padding: 6px;
+  border-radius: 50%;
+  color: var(--text-color);
+}
+
+/* Form Styles */
+label, input {
+  display: block;
+  width: 100%;
+}
+input {
+  padding: 12px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
+  transition: all 0.2s ease-in-out;
+}
+input:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0px 0px 5px rgba(0, 123, 255, 0.2);
+}
+
+/* Button Styles */
+button {
+  background: var(--primary);
+  border: none;
+  color: #fff;
+  padding: 12px 15px;
+  font-family: "Inter";
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background 0.3s ease-in-out;
+  margin-left: 5px;
+}
+button:hover {
+  background: #0056b3;
+}
+
+/* Error Message */
+div.error {
+  padding: 10px;
+  background: #f8d7da;
+  border: 1px solid var(--error);
+  color: var(--error);
+  border-radius: 6px;
+  margin: 15px 0;
+}
+input.error {
+  border: 1px solid var(--error);
+}
+
+/* Navbar */
+nav {
+  display: flex;
+  align-items: center;
+}
+nav a {
+  margin-left: 15px;
+  font-size: 1em;
+  font-weight: 500;
+  color: var(--text-color);
+  transition: color 0.3s ease-in-out;
+}
+nav a:hover {
+  color: var(--primary);
+}
+nav button {
+  background: transparent;
+  color: var(--primary);
+  border: 2px solid var(--primary);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-family: "Inter";
+  cursor: pointer;
+  font-size: 1em;
+  margin-left: 15px;
+  transition: all 0.3s ease-in-out;
+}
+nav button:hover {
+  background: var(--primary);
+  color: #fff;
+}
+
+/* Auth Forms */
+form.signup, form.login {
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Space between Edit and Delete buttons */
+.action-buttons {
+  margin-top: 15px;
+  margin-right: 15px;
+  display: flex;
+  gap: 15px; /* Space between buttons */
+}
+
+/* Button styles */
+.material-symbols-outlined {
+  font-size: 0.9em;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+/* Delete button styling */
+.delete-btn {
+  color: #dc3545; /* Red color */
+  background-color: #f8d7da; /* Light red background */
+}
+
+.delete-btn:hover {
+  background-color: #f5c6cb;
+}
+
+/* Edit button styling */
+.edit-btn {
+  color: #007bff; /* Blue color */
+  background-color: #cce5ff; /* Light blue background */
+}
+
+.edit-btn:hover {
+  background-color: #b8daff;
+}
